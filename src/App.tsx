@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Routes from '@/router/index';
+import { Spin } from "antd"
+import { StoreProvider } from '@stores/index';
+// 日期组件，antd依赖
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn')
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () =>
+  <>
+    <StoreProvider>
+      <Routes />
+    </StoreProvider>
+    <div id="ajax_loading">
+      <div className="ajax_loading_wrapper">
+        <Spin></Spin>
+      </div>
     </div>
-  );
-}
+  </>
 
 export default App;
