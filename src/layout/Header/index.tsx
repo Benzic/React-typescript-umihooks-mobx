@@ -1,15 +1,15 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import { Button, Layout } from 'antd'
-import { withRouter } from 'react-router-dom'
-import './index.less'
-import BreadCrumb from '@layout/BreadCrumb'
-import fn from '@/utils/fn'
+import { withRouter, RouteComponentProps } from 'react-router-dom'
+import { fn } from '@/utils/fn'
 import { usePersistFn } from 'ahooks'
+import BreadCrumb from '@layout/BreadCrumb'
+import './index.less'
 const { Header } = Layout;
-const TopHeader = (props: any) => {
-    const onLogout = usePersistFn(() => {
+const TopHeader = (props: RouteComponentProps) => {
+    const onLogout = usePersistFn((): void => {
         fn.removeLocalStorage("login")
-        props.history.replace("login")
+        props.history.replace("/login")
     })
     return (<div className="header">
         <Header className="header-content">

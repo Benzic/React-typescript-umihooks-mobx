@@ -1,12 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-09-16 14:02:59
- * @LastEditTime: 2020-09-16 19:33:39
+ * @LastEditTime: 2020-09-17 13:54:34
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \react-cli\src\router\routes.ts
  */
 import LoginIndex from '@/views/Login'
+import Index from '@/views/Index'
 import HomeIndex from '@/views/Home'
 import SubPages11 from '@/views/SubPages1/Page1'
 import SubPages12 from '@/views/SubPages1/Page2'
@@ -20,14 +21,20 @@ import { routeTypes } from '@/interfaces/routes'
 const routes: routeTypes[] = [
     {
         path: '/',
+        exact: true,
+        component: Index,
+        requiresAuth: false,
+    },
+    {
+        path: '/pages',
         component: HomeIndex,
         requiresAuth: true,
         children: [{
-            path: '/subPages1',
+            path: '/pages/sub1',
             name: 'SubPages1',
             icon: AndroidOutlined,
             children: [{
-                path: "/subPages1/page1",
+                path: "/pages/sub1/page1",
                 component: SubPages11,
                 name: 'SubPage1',
                 icon: AppleOutlined,
@@ -36,7 +43,7 @@ const routes: routeTypes[] = [
                 }
             },
             {
-                path: "/subPages1/page2",
+                path: "/pages/sub1/page2",
                 component: SubPages12,
                 name: 'SubPage2',
                 icon: DingdingOutlined,
@@ -45,11 +52,11 @@ const routes: routeTypes[] = [
                 }
             }]
         }, {
-            path: '/subPage2',
+            path: '/pages/sub2',
             name: 'SubPages2',
             icon: IeOutlined,
             children: [{
-                path: "/subPages2/page1",
+                path: "/pages/sub2/page1",
                 component: SubPages21,
                 name: 'SubPage1',
                 icon: ChromeOutlined,
@@ -58,7 +65,7 @@ const routes: routeTypes[] = [
                 }
             },
             {
-                path: "/subPages2/page2",
+                path: "/pages/sub2/page2",
                 component: SubPages22,
                 name: 'SubPage2',
                 icon: AppleOutlined,
@@ -67,11 +74,11 @@ const routes: routeTypes[] = [
                 }
             }]
         }, {
-            path: '/SubPages3',
+            path: '/pages/sub3',
             name: 'SubPages3',
             icon: GithubOutlined,
             children: [{
-                path: "/subPages3/page1",
+                path: "/pages/sub3/page1",
                 component: SubPages31,
                 name: 'SubPage1',
                 icon: AlipayCircleOutlined,
@@ -80,7 +87,7 @@ const routes: routeTypes[] = [
                 }
             },
             {
-                path: "/subPages3/page2",
+                path: "/pages/sub3/page2",
                 component: SubPages32,
                 name: 'SubPage2',
                 icon: ZhihuOutlined,

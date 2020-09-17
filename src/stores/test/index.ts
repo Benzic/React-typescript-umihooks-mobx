@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-16 18:53:08
- * @LastEditTime: 2020-09-16 19:10:43
+ * @LastEditTime: 2020-09-17 14:57:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \react-cli\src\stores\test\index.ts
@@ -16,10 +16,10 @@ export type CountStoreType = {
 class counterStoreClass {
     @observable counter: number = 0
     @action.bound
-    onIncrement() {
+    onIncrement(): void {
         this.counter++;
     }
-    onDecrement = () => {
+    onDecrement(): void {
         this.counter--;
     }
 }

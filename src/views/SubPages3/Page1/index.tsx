@@ -1,13 +1,7 @@
-import React, { useState, useEffect, MouseEvent } from 'react'
-import { } from 'ahooks'
-import { useImmer } from 'use-immer'
+import React from 'react'
 interface IProps {
 }
 const SubPage: React.FC<IProps> = ((): JSX.Element => {
-    const [state, setState] = useImmer<any>({
-
-    })
-
     return <div>
         这是SubPages3-1
     </div>
